@@ -52,6 +52,7 @@ console.log(inventors);
 // Array.prototype.reduce()
 // 5. How many years did all the inventors live?
 
+//I did this in 2 ways
 let yearsLivedArr = inventors.reduce((acc, inventor) => {
   let obj = {};
   obj.first = inventor.first;
@@ -96,6 +97,16 @@ const data = [
 // Array.prototype.reduce()
 // 7. Count the number of instances for each of the data items.
 // Hint:  Return an object where the keys are 'car', 'truck', etc. and the values are the count.
+const countInstance = data.reduce((acc, item) => {
+  if (acc[item] === undefined) {
+    acc[item] = 1;
+  } else {
+    acc[item] += 1;
+  }
+  return acc;
+}, {});
+
+console.log(countInstance);
 
 
 
@@ -109,12 +120,14 @@ const devs = [
 // Array.prototype.some()
 // 8. Check if at least one person is 19 or older?
 
-
+let hasNineteen = devs.some(dev => dev.year <= 2003);
+console.log(hasNineteen);
 
 // Array.prototype.every()
 // 9. Check if everyone is 19 or older?
 
-
+let allNineteen = devs.every(dev => dev.year <= 2003);
+console.log(allNineteen);
 
 const comments = [
   { text: 'Love this!', id: 523423 },
@@ -127,7 +140,11 @@ const comments = [
 // Array.prototype.find()
 // 10. Find the comment with the id of 823423
 
-
+let findComment = comments.find(comment => comment.id === 823423);
+console.log(findComment);
 
 // Array.prototype.findIndex()
 // 11. Find the index of the comment with an id of 123523
+
+let findId = comments.findIndex(comment => comment.id === 823423);
+console.log(findId);
